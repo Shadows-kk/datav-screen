@@ -48,21 +48,33 @@
           </div>
           <div class="right-bottom">
             <div class="right-left">
-              <div class="right-left1">rl1</div>
+              <div class="right-left1"><OrderMap /></div>
               <div class="right-left2">
                 <transform-category
                   :data="['订单量', '销售额', '用户数', '退单量']"
                   :color="['rgb(116,166,49)', 'rgb(178,209,126)']"
                 />
               </div>
-              <div class="right-left3">rl3</div>
-              <div class="right-left4">rl4</div>
+              <div class="right-left3">
+                <fly-box
+                  starColor="rgb(251,253,142)"
+                  duration="3"
+                  starLength="100"
+                >
+                  <RealTimeOrder :data="realTimeOrderData" />
+                </fly-box>
+              </div>
+              <div class="right-left4">
+                <ScheduleView :data="scheduleViewData" />
+              </div>
             </div>
             <div class="right-right">
               <div class="right-right1">
                 <sales-list :data="salesListData" />
               </div>
-              <div class="right-right2">rr2</div>
+              <div class="right-right2">
+                <SalesRank :data="salesRankData" />
+              </div>
             </div>
           </div>
         </div>
@@ -84,6 +96,13 @@ import HotCategory from "@/components/HotCategory/index";
 import CenterHeader from "@/components/CenterHeader/index";
 import TransformCategory from "@/components/TransformCategory/index";
 import SalesList from "@/components/SalesList/index";
+import FlightEarth from "@/components/FlightEarth/index";
+import OrderMap from "@/components/OrderMap/index.vue";
+import RealTimeOrder from "@/components/RealTimeOrder/index.vue";
+import ScheduleView from "@/components/ScheduleView/index.vue";
+import SalesRank from "@/components/SalesRank/index.vue";
+// import GdpMap from "@/components/GdpMap/index";
+// import RotatingEarth from "@/components/RotatingEarth/index";
 export default {
   name: "Home",
   components: {
@@ -96,7 +115,14 @@ export default {
     HotCategory,
     CenterHeader,
     TransformCategory,
-    SalesList
+    SalesList,
+    OrderMap,
+    RealTimeOrder,
+    ScheduleView,
+    SalesRank
+    // FlightEarth,
+    // GdpMap,
+    // RotatingEarth,
   },
   setup() {
     const loading = ref(true);
